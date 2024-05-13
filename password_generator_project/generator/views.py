@@ -5,12 +5,28 @@ import random
 # Create your views here.
 
 def home(request):
-    lenght_options = range(12, 25) # Define the range of lenghts - for ex 6 - 24
+    lenght_options = range(6, 25) # Define the range of lenghts - for ex 6 - 24
     return render(
         request=request,
         template_name='generator/home.html',
         context={'length_options': lenght_options}
     )
+
+def evaluate_password_strength(password):
+    length = len(password)
+    has_letters = any(char.isalpha() for char in password)
+    has_numbers = any(char.isdigit() for char in password)
+    has_special = any(not char.isalnum() for char in password)
+
+    if length > 14 and has_letters and has_numbers and has_special:
+        return 'strong'
+    elif length > 8 and length < 14 and has_letters and has_numbers and not has_special:
+        return 'medium'
+    elif length < 8:
+        return 'weak'
+    else:
+        return 'weak'  # Default case
+    
 
 def password(request):
     chars = string.ascii_lowercase
@@ -28,8 +44,11 @@ def password(request):
     random.shuffle(password)
     the_password = ''.join(password)
 
+    strength = evaluate_password_strength(the_password)
+
     return render(
             request=request,
             template_name='generator/password.html',
-            context={'password': the_password}
+            context={'password': the_password,
+                     'strength': strength},
     )
