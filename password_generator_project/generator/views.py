@@ -14,18 +14,24 @@ def home(request):
 
 def evaluate_password_strength(password):
     length = len(password)
-    has_letters = any(char.isalpha() for char in password)
+    has_upper_letters = any(char.isupper() for char in password)
     has_numbers = any(char.isdigit() for char in password)
     has_special = any(not char.isalnum() for char in password)
 
-    if length > 14 and has_letters and has_numbers and has_special:
+    if length > 14 and has_upper_letters and has_numbers and has_special:
         return 'strong'
-    elif length > 8 and length < 14 and has_letters and has_numbers and not has_special:
+    elif length > 8 and length < 14 and has_upper_letters and has_numbers and not has_special:
         return 'medium'
     elif length < 8:
         return 'weak'
     else:
         return 'weak'  # Default case
+
+def health_check(request):
+    # Perform any necessary health checks
+    # For example, check database connectivity or other dependencies
+    # If all checks pass, return a 200 OK response
+    return HttpResponse("OK")
     
 
 def password(request):
