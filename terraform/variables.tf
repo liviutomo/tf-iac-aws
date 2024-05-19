@@ -40,7 +40,7 @@ variable "health_check_path" {
 
 variable "ecs_cluster_name" {
   description = "Name of the ECS cluster"
-  default     = "production"
+  default     = "django-web-app"
 }
 
 # logs
@@ -51,7 +51,7 @@ variable "log_retention_in_days" {
 
 variable "docker_image_url_django" {
   description = "Docker image to run in the ECS cluster"
-  default     = "891377058700.dkr.ecr.eu-north-1.amazonaws.com/django-app:latest"
+  default     = "891377058700.dkr.ecr.eu-north-1.amazonaws.com/django-web-app:latest"
 }
 
 variable "app_count" {
