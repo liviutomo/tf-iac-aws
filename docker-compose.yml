@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  app:
+   build: .
+   volumes:
+     - .:/django_password_generator
+   ports:
+     - "8000:8000"
+   image: application:django_password_generator
+   container_name: app_container
+   command: gunicorn password_generator.wsgi:application --bind 0.0.0.0:8000

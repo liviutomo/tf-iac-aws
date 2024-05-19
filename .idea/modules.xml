@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/deploy-web-app-with-aws.iml" filepath="$PROJECT_DIR$/.idea/deploy-web-app-with-aws.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/password_generator_project.iml" filepath="$PROJECT_DIR$/.idea/password_generator_project.iml" />
     </modules>
   </component>
 </project>
