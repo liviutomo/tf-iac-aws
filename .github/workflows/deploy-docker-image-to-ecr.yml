@@ -6,8 +6,8 @@ on:
     branches: [ main ]
 
 env:
-  ECS_SERVICE: django-web-app-service               # set this to your Amazon ECS service name
-  ECS_CLUSTER: django-web-app-cluster                 # set this to your Amazon ECS cluster name
+  ECS_SERVICE: prod-backend-web
+  ECS_CLUSTER: prod
 
 jobs:
   build-and-push:

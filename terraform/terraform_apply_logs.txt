@@ -1,7 +1,0 @@
-alb_hostname = "production-alb-1590264768.eu-north-1.elb.amazonaws.com"
-ecs_task_execution_role_arn = "arn:aws:iam::891377058700:role/ecs_task_execution_role_prod"
-security_group = "sg-0e161219761768f13"
-subnets = [
-  "subnet-0285881da660a8066",
-  "subnet-07d96f5fc0b0f99db",
-]

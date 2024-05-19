@@ -1,26 +1,20 @@
-# pull official base image
-FROM python:3.12.0-slim-bookworm
+FROM python:3.10-slim-buster
 
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
-
-
-WORKDIR .
-
-
-RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD gunicorn password_generator.wsgi:application --bind 0.0.0.0:8000
-
+# Open http port
 EXPOSE 8000
 
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV DEBIAN_FRONTEND noninteractive
+
+# Install pip and gunicorn web server
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install gunicorn==20.1.0
+
+# Install requirements.txt
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r /requirements.txt
+
+# Moving application files
+WORKDIR /app
+COPY . /app

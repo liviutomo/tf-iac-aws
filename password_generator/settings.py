@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-uqoms*p(vj@w*lyplx%07m6eb^y3@dc$7eq9#43o9&ex#d108z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-web-app-balancer-1747170812.eu-north-1.elb.amazonaws.com', 'http://django-web-app-alb-1893193978.eu-north-1.elb.amazonaws.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
