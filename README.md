@@ -1,4 +1,4 @@
-# Django Password Generator Web Application
+# Deply Django Web Application on AWS with Terraform
 
 ## Overview
 This Django web application, named "Password Generator", is a simple tool for generating strong and secure passwords. It provides users with the ability to customize password length and choose whether to include uppercase letters, lowercase letters, numbers, and special characters.
